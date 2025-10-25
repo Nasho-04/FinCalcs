@@ -139,7 +139,6 @@ export function calculateInvestmentPaths(
     let pessimisticHitobjectiveAmount = initialInvestment >= objectiveAmount;
     let expectedHitobjectiveAmount = initialInvestment >= objectiveAmount;
     let optimisticHitobjectiveAmount = initialInvestment >= objectiveAmount;
-    let monthsExpectedToReach = initialInvestment >= objectiveAmount ? 0 : -1; // Time to reach objectiveAmount in Expected scenario
 
     // Check for immediate unreachability (no growth and no contributions)
     if (monthlyContribution <= 0 && expectedRate <= 0 && objectiveAmount > initialInvestment) {
@@ -172,7 +171,6 @@ export function calculateInvestmentPaths(
         }
         if (!expectedHitobjectiveAmount && balanceExpected >= objectiveAmount) {
             expectedHitobjectiveAmount = true;
-            monthsExpectedToReach = months; // Only track for primary result
         }
         if (!pessimisticHitobjectiveAmount && balancePessimistic >= objectiveAmount) {
             pessimisticHitobjectiveAmount = true;
