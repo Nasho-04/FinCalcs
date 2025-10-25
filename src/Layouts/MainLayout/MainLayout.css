@@ -1,0 +1,125 @@
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    position: relative;
+    padding-top: 5dvh;
+    animation: fade-in 0.8s ease-in-out;
+}
+
+.floating-container {
+    position: absolute;
+    display: flex;
+    top: 2dvh;
+    justify-content: space-between;
+    align-items: center;
+    align-self: center;
+    width: 90dvw;
+    font-family: "Open Sans", sans-serif;
+    font-size: .9rem;
+    color: #D4D4D4;
+}
+
+.floating-button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.back {
+    left: 10dvw;
+    color: #333333;
+    background-color: #ffffffa5;
+    width: fit-content;
+    padding: 5px 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: transform 0.4s;
+    cursor: pointer;
+    border: 1.5px solid #333333;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;;
+}
+
+.back:hover {
+    transform: scale(1.1);
+}
+
+#title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 800px;
+    min-width: 300px;
+    max-width: 90dvw;
+}
+
+h1 {
+    font-size: 3rem;
+    font-family: "Roboto", sans-serif;
+}
+
+#title-description {
+    font-size: 1rem;
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+    color: #D4D4D4;
+}
+
+#saved-scenarios-link {
+    text-decoration: none;
+    color: #D4D4D4;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    padding: 15px 30px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#saved-scenarios-link:hover {
+    border: #D4D4D4 2px solid;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+@media screen and (max-width: 500px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    #title-description {
+        font-size: .8rem;
+    }
+
+    #saved-scenarios-link {
+        font-size: .8rem;
+        padding: 10px 20px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    #title-description {
+        font-size: .7rem;
+    }
+
+    .floating-button {
+        font-size: .7rem;
+    }
+}

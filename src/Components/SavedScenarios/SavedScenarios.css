@@ -1,0 +1,122 @@
+#saved-scenarios-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    margin-top: 40px;
+    text-align: center;
+    animation: fade-in 0.8s ease-in-out;
+}
+
+#saved-scenarios-section {
+    margin-bottom: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    width: 950px;
+    max-width: 85dvw;
+    min-width: 320px;
+    place-items: center;
+    column-gap: 15px;
+    row-gap: 30px;
+    animation: fade-in 0.8s ease-in-out;
+}
+
+.saved-scenario {
+    background-color: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    width: 280px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.scenario-title {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.scenario-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: 'Open sans', sans-serif;
+    list-style: none;
+    color: #D4D4D4;
+}
+
+.scenario-input {
+    width: 100%;
+    text-align: left;
+    font-size: .9rem;
+}
+
+.saved-scenarios-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.saved-scenarios-btn {
+    height: 40px;
+    width: 100px;
+    color: #FFFFFF;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 0;
+}
+
+.saved-scenarios-btn:hover {
+    border: #D4D4D4 2px solid;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    transition: box-shadow .3s ease-in-out;
+}
+
+.amount {
+    font-weight: 700;
+}
+
+@media screen and (max-width: 450px) {
+    .saved-scenarios-btn {
+        width: 80px;
+        font-size: .8rem;
+        height: 35px;
+    }
+
+    .saved-scenarios-buttons {
+        margin-top: 10px;
+    }
+
+    .scenario-title {
+        font-size: 1rem;
+    }
+
+    .scenario-input {
+        font-size: .8rem;
+    }
+
+    .saved-scenario {
+        gap: 10px;
+        width: 250px;
+    }
+}
