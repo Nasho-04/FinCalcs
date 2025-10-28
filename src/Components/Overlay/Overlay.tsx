@@ -19,7 +19,7 @@ const Overlay = ({ isOpen, title, message, onConfirmSave, onConfirmDelete, onCan
             <div className="overlay-content">
                 <div className="overlay-header">
                     <h2 className="overlay-title">{title}</h2>
-                    <button className="close-button" onClick={onCancel}>X</button>
+                    <button className="close-button" onClick={onCancel}><i className="bi bi-x"></i></button>
                 </div>
                 <div className="overlay-body">
                     <p>{message}</p>
