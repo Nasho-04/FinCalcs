@@ -47,10 +47,10 @@ const SavedScenarios = () => {
                                     <article className="saved-scenario" key={index}>
                                         <h3 className="scenario-title">Scenario {index + 1}</h3>
                                         <ul className="scenario-inputs">
-                                            {scenario.inputs.initialInvestment && <li className="scenario-input">Initial Investment: <span className="amount">${scenario.inputs.initialInvestment}</span></li>}
+                                            <li className="scenario-input">Initial Investment: <span className="amount">${scenario.inputs.initialInvestment}</span></li>
                                             {scenario.inputs.monthlyContribution && <li className="scenario-input" >Monthly Contribution: <span className="amount">${scenario.inputs.monthlyContribution}</span></li>}
                                             {scenario.inputs.timePeriod && <li className="scenario-input">Period: <span className="amount">{scenario.inputs.timePeriod} Years</span></li>}
-                                            {scenario.inputs.expectedRate && <li className="scenario-input">Expected Rate: <span className="amount">{scenario.inputs.expectedRate}%</span></li>}
+                                            <li className="scenario-input">Expected Rate: <span className="amount">{scenario.inputs.expectedRate}%</span></li>
                                             {scenario.inputs.objectiveAmount && <li className="scenario-input">Objective Amount: <span className="amount">${scenario.inputs.objectiveAmount}</span></li>}
                                         </ul>
                                         <div className="saved-scenarios-buttons">
