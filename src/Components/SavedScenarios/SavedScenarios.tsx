@@ -5,9 +5,14 @@ import '../../index.css'
 import ResultsContainer from "../ResultsContainer/ResultsContainer"
 import Note from "../Note/Note"
 import { useGlobalContext } from "../../GlobalContext"
+import type { IResults } from "../../types"
+import { useNavigate } from "react-router-dom"
+import { toast } from "sonner"
 
 
 const SavedScenarios = () => {
+
+    const navigation = useNavigate()
 
     const { setIndex } = useGlobalContext()
     const [scenarios, setScenarios] = useState([])
@@ -21,20 +26,23 @@ const SavedScenarios = () => {
         }
     ])
 
-    const { setIsOpen, setOverlayMessage, setOverlayTitle, setIsSave} = useGlobalContext()
+    const { setIsOpen, setOverlayMessage, setOverlayTitle, setIsSave, savedScenarios } = useGlobalContext()
 
     useEffect(() => {
         setScenarios(JSON.parse(readLocalStorage()))
-    }, [])
+        if (savedScenarios.length === 0) {
+            navigation('/')
+            toast.warning('No saved scenarios found.')
+        }
+    }, [savedScenarios])
 
     return (
         <>
             <h2 id="saved-scenarios-title">Saved Scenarios</h2>
             {
-                scenarios.length > 0
-                    ? <section id="saved-scenarios-section">
+                scenarios.length > 0 && <section id="saved-scenarios-section">
                         {
-                            scenarios.map((scenario: any, index: number) => {
+                            scenarios.map((scenario: IResults, index: number) => {
                                 return (
                                     <article className="saved-scenario" key={index}>
                                         <h3 className="scenario-title">Scenario {index + 1}</h3>
@@ -52,16 +60,24 @@ const SavedScenarios = () => {
                                                 setOverlayMessage(`Are you sure you want to delete Scenario ${index + 1}?`)
                                                 setIsSave(false)
                                                 setIndex(index)
-                                                }}>Delete</div>
+                                                setResults([
+                                                    {
+                                                        pessimistic: 0,
+                                                        expected: 0,
+                                                        optimistic: 0,
+                                                        totalContribution: 0,
+                                                        year: 0
+                                                    }
+                                                ])
+                                            }}>Delete</div>
                                             <div className="saved-scenarios-btn" onClick={() => setResults(scenario.results)}>Graph</div>
                                         </div>
                                     </article>
                                 )
                             })}
                     </section>
-                    : <p className="no-saved-scenarios">No saved scenarios found.</p>
             }
-            
+
             <ResultsContainer data={results} />
             {results[1] && <Note />}
         </>

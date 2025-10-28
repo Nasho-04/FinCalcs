@@ -18,8 +18,9 @@ main {
     align-self: center;
     width: 90dvw;
     font-family: "Open Sans", sans-serif;
-    font-size: .9rem;
+    font-size: 1rem;
     color: #D4D4D4;
+    font-weight: bold;
 }
 
 .floating-button {
@@ -35,7 +36,6 @@ main {
     width: fit-content;
     padding: 5px 15px;
     border-radius: 10px;
-    font-weight: bold;
     transition: transform 0.4s;
     cursor: pointer;
     border: 1.5px solid #333333;
@@ -87,6 +87,7 @@ h1 {
     padding: 15px 30px;
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
+    animation: fade-in-left 0.8s ease-in-out;
 }
 
 #saved-scenarios-link:hover {

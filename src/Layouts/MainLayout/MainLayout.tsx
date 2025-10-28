@@ -10,11 +10,12 @@ import Overlay from '../../Components/Overlay/Overlay'
 const MainLayout = () => {
 
     const [scenarios, setScenarios] = useState([])
+
+    const { isOpen, setIsOpen, overlayTitle, overlayMessage, setOverlayMessage, setOverlayTitle, saveResults, setIsSave, deleteScenario, savedScenarios } = useGlobalContext()
+
     useEffect(() => {
         setScenarios(JSON.parse(readLocalStorage()))
-    }, [])
-
-    const { isOpen, setIsOpen, overlayTitle, overlayMessage, setOverlayMessage, setOverlayTitle, saveResults, setIsSave, deleteScenario } = useGlobalContext()
+    }, [savedScenarios])
 
     const onCancel = (): void => {
         setOverlayTitle('')

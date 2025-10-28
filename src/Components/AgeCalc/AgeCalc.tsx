@@ -66,6 +66,7 @@ const AgeCalc = () => {
                                     {...register('initialInvestment', {
                                         required: "Initial investment is required",
                                         min: { value: 0, message: "Must be 0 or greater" },
+                                        max: { value: 9999999, message: "Must be 9,999,999 or less" },
                                         valueAsNumber: true
                                     })
                                     }
@@ -83,6 +84,7 @@ const AgeCalc = () => {
                                     {...register('objectiveAmount', {
                                         required: "Time period is required",
                                         min: { value: 1000, message: "Must be 1000 or greater" },
+                                        max: { value: 9999999, message: "Must be 9,999,999 or less" },
                                         valueAsNumber: true
                                     })
                                     }
@@ -100,6 +102,7 @@ const AgeCalc = () => {
                                     {...register('monthlyContribution', {
                                         required: "Monthly contribution is required",
                                         min: { value: 50, message: "Must be 50 or greater" },
+                                        max: { value: 9999, message: "Must be 9,999 or less" },
                                         valueAsNumber: true
                                     })
                                     }
@@ -118,6 +121,7 @@ const AgeCalc = () => {
                                     {...register('expectedRate', {
                                         required: "Expected Rate is required",
                                         min: { value: 0.1, message: "Must be greater than 0" },
+                                        max: { value: 100, message: "Must be 100 or less" },
                                         valueAsNumber: true
                                     })}
                                 />

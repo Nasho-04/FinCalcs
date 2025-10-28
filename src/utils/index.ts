@@ -23,7 +23,6 @@ export function deleteFromLocalStorage(index: number): void {
     const scenarios = JSON.parse(readLocalStorage())
     scenarios.splice(index, 1)
     localStorage.setItem('scenarios', JSON.stringify(scenarios))
-    window.location.reload()
 }
 
 /* Calculator Functions */

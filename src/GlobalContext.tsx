@@ -17,7 +17,9 @@ const GlobalContext = createContext({
     setIsSave: (property: boolean) => {property},
     setScenarios: (property: any) => {property},
     deleteScenario: () => {},
-    setIndex: (property: number) => {property}
+    setIndex: (property: number) => {property},
+    savedScenarios: [],
+    setSavedScenarios: (property: any) => {property}
 })
 
 export const GlobalContextProvider = ({children}: any) => {
@@ -37,6 +39,7 @@ export const GlobalContextProvider = ({children}: any) => {
         }],
         inputs: {}
     })
+    const [savedScenarios, setSavedScenarios] = useState([])
 
     const resetOverlay = (): void => {
         setOverlayTitle('')
@@ -53,6 +56,7 @@ export const GlobalContextProvider = ({children}: any) => {
         }
         if (savedScenarios.length === 0) {
             saveToLocalStorage(scenarios)
+            setSavedScenarios(JSON.parse(readLocalStorage()))
             toast.success('Scenario saved successfully!')
             resetOverlay()
             return
@@ -65,6 +69,7 @@ export const GlobalContextProvider = ({children}: any) => {
             }
             else {
                 saveToLocalStorage(scenarios)
+                setSavedScenarios(JSON.parse(readLocalStorage()))
                 toast.success('Scenario saved successfully!')
                 setIsOpen(false)
                 resetOverlay()
@@ -75,6 +80,7 @@ export const GlobalContextProvider = ({children}: any) => {
 
         const deleteScenario = (): void => {
             deleteFromLocalStorage(index)
+            setSavedScenarios(JSON.parse(readLocalStorage()))
             toast.success('Scenario deleted successfully!')
             resetOverlay()
         }
@@ -93,7 +99,9 @@ export const GlobalContextProvider = ({children}: any) => {
             setIsSave,
             setScenarios,
             deleteScenario,
-            setIndex
+            setIndex,
+            savedScenarios,
+            setSavedScenarios
         }}>
             {children}
         </GlobalContext.Provider>
